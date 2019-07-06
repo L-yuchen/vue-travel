@@ -1,7 +1,7 @@
 <template>
   <div class='weapper'>
-    <swiper :options="swiperOption">
-      <swiper-slide v-for='item of swiperList' :key='item.id'>
+    <swiper :options="swiperOption" v-if='showSwiper'>
+      <swiper-slide v-for='item of list' :key='item.id'>
         <img class='swiper-img' :src='item.imgUrl'/>
       </swiper-slide>
       <!-- 通过slot插槽 向第三方插件传递内容 -->
@@ -13,19 +13,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'https://h-des-activity-fecp.qunarzz.com/h_des_activity_fe_h_des_activity_fe/973dc1ae0da73a58410186df08ff25cb.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/0677c297245b8a489ee12ab9b165c928.jpg'
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
