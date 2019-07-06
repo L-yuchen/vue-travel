@@ -4,6 +4,7 @@
       <swiper-slide v-for='item of swiperList' :key='item.id'>
         <img class='swiper-img' :src='item.imgUrl'/>
       </swiper-slide>
+      <!-- 通过slot插槽 向第三方插件传递内容 -->
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
