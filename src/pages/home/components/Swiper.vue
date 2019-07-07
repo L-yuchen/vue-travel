@@ -4,7 +4,7 @@
       <swiper-slide v-for='item of list' :key='item.id'>
         <img class='swiper-img' :src='item.imgUrl'/>
       </swiper-slide>
-      <!-- 通过slot插槽 向第三方插件传递内容 -->
+      <!-- 通过slot插槽属性 向第三方插件传递内容 -->
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
@@ -20,7 +20,9 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoplay: 2000,
+        speed: 1000
       }
     }
   },
