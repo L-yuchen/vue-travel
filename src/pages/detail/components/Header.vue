@@ -41,7 +41,12 @@ export default {
     }
   },
   activated () {
+    // 在全局对象绑定事件 可能会出现问题或BUG
     window.addEventListener('scroll', this.handleScroll)
+  },
+  // 页面即将被隐藏或被替换新的页面的时候,这个组件deactivated会被触发
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
