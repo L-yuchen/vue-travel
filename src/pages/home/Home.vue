@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      lastCity: '',// 临时缓存的变量
+      lastCity: '', // 临时缓存的变量
       swiperList: [],
       iconList: [],
       recommendList: [],
