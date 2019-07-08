@@ -19,5 +19,9 @@ export default new Router({
     path: '/detail/:id',
     name: 'Detail',
     component: Detail
-  }]
+  }],
+  // 每次做路由切换 都让先进入的页面X/Y轴初始位置为0,即每个切换页面都会回到顶部
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
