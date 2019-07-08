@@ -51,6 +51,7 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+      // 如果城市搜索框内容为空,清空整个列表[解决→没找到相对于的城市显示的问题]
       if (!this.keyword) {
         this.list = []
         return
@@ -75,6 +76,7 @@ export default {
     handleCityClick (city) {
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
+      // vue 提供页面跳转的方法
       this.$router.push('/')
     },
     ...mapMutations(['changeCity'])

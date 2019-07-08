@@ -15,6 +15,7 @@ import HomeContent from './components/Content'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
@@ -27,15 +28,19 @@ export default {
   },
   data () {
     return {
+      lastCity: '',// 临时缓存的变量
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekendList: []
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfosucc)
     },
     getHomeInfosucc (res) {
@@ -50,7 +55,16 @@ export default {
     }
   },
   mounted () {
+    this.lastCity = this.city
     this.getHomeInfo()
+  },
+  // 当使用keep-alive组件时,会触发一个activated的生命钩子函数,这样就可修改内存里面的内容
+  activated () {
+    if (this.lastCity !== this.city) {
+      // 当这次城市和上一次保存的城市不相等的时候,重新赋值给lastCity,并重新请求一个ajax
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
