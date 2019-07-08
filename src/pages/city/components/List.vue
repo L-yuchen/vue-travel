@@ -59,6 +59,7 @@ export default {
     handleCityClick (city) {
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
+      // vue 提供的路由跳转方法
       this.$router.push('/')
     },
     ...mapMutations(['changeCity'])
