@@ -54,7 +54,7 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.lastCity = this.city
     this.getHomeInfo()
   },

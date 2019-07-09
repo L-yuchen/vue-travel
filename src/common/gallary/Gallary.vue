@@ -56,16 +56,12 @@ export default {
     bottom: 0
     background: #000
     .wrapper
-      overflow: hidden
       width: 100%
       height: 0
-      padding-bottom: 100%
+      padding-bottom: 66.7%
       .gallary-img
         width: 100%
       .swiper-pagination
-        z-index: 100
-        position: relative
-        top: -3.76rem
         bottom: -1rem
         color: #fff
 </style>

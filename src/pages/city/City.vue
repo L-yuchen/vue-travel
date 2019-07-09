@@ -54,7 +54,7 @@ export default {
       this.letter = letter
     }
   },
-  mounted () {
+  created () {
     this.getCityInfo()
   }
 }

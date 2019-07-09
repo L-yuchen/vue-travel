@@ -40,7 +40,7 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     // 在全局对象绑定事件 可能会出现问题或BUG
     window.addEventListener('scroll', this.handleScroll)
   },
